@@ -13,9 +13,22 @@
         table, th, td {
             border: 1px solid black;
         }
+
+        .draggable {
+            cursor: move;
+            position: fixed;
+            user-select: none;
+            width: fit-content;
+        }
+
+        .centered_absolute {
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 
-    <script src="common.js"></script>
+    <script src="index.js"></script>
 
     <head>
         <meta charset="UTF-8">
@@ -24,14 +37,16 @@
     </head>
 
     <header>
-        <pre id="rgb_title" style="text-shadow: 2px 2px black">
+        <div id="draggable" class="draggable centered_absolute" style="top: 0">
+            <pre id="rgb_title" style="text-shadow: 2px 2px black">
 ████████ ███████ ████████ ██████  ██ ███████
    ██    ██         ██    ██   ██ ██ ██
    ██    █████      ██    ██████  ██ ███████
    ██    ██         ██    ██   ██ ██      ██
    ██    ███████    ██    ██   ██ ██ ███████
-        </pre>
-        <hr/>
+            </pre>
+        </div>
+        <hr style="margin-top: 10%"/>
     </header>
     <body>
         <div class="centered" style="height: 80%; flex-direction: column; text-align: center">
