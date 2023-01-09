@@ -1,7 +1,5 @@
 // rgb
-function changeTitleColor(r, g, b) {
-    document.getElementById("rgb_title").style.color = `rgb(${r}, ${g}, ${b})`;
-}
+let rgb_title = undefined;
 
 let color_r = 0, color_g = 0, color_b = 0;
 let increment = true;
@@ -15,7 +13,7 @@ function getIncrementMaximum() {
 }
 
 function changeColors() {
-    changeTitleColor(color_r, color_g, color_b);
+    rgb_title.style.color = `rgb(${color_r}, ${color_g}, ${color_b})`;
 
     if (color_r !== getIncrementMaximum()) {
         color_r += getIncrementChange();
@@ -36,8 +34,9 @@ function changeColors() {
 }
 
 // draggable
-let x = 0, y = 0;
 let draggable = undefined;
+
+let x = 0, y = 0;
 
 const mouseDownHandler = function (e) {
     x = e.clientX;
@@ -64,9 +63,12 @@ const mouseUpHandler = function () {
 };
 
 // init
-window.onload = function init() {
-    draggable = window.document.getElementById('draggable');
-    draggable.addEventListener('mousedown', mouseDownHandler);
-
+onload = function init() {
+    // rgb init
+    rgb_title = document.getElementById("rgb_title");
     setInterval(changeColors, 1);
+
+    // draggable init
+    draggable = document.getElementById('draggable');
+    draggable.addEventListener('mousedown', mouseDownHandler);
 }
