@@ -36,25 +36,26 @@ function changeColors() {
 // draggable
 let draggable = undefined;
 
-let x = 0, y = 0;
+let position_x = 0, position_y = 0;
 
 const mouseDownHandler = function (e) {
-    x = e.clientX;
-    y = e.clientY;
+    position_x = e.clientX;
+    position_y = e.clientY;
 
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler);
 };
 
 const mouseMoveHandler = function (e) {
-    const dx = e.clientX - x;
-    const dy = e.clientY - y;
+    const dx = e.clientX - position_x; // e.clientX este pozitia pe viewport
+    const dy = e.clientY - position_y;
 
-    draggable.style.top = `${draggable.offsetTop + dy}px`;
+    draggable.style.top = `${draggable.offsetTop + dy}px`; // draggable.offsetTop este pozitia de sus fata de cea originala
+    // setam pozitia superioara la pozitia noua de la mouse
     draggable.style.left = `${draggable.offsetLeft + dx}px`;
 
-    x = e.clientX;
-    y = e.clientY;
+    position_x = e.clientX; // memoram ultima pozitie
+    position_y = e.clientY;
 };
 
 const mouseUpHandler = function () {
