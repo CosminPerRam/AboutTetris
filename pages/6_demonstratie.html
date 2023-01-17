@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ro">
     <style>
 
@@ -7,6 +8,7 @@
         <meta charset="UTF-8">
         <title>Tetris - Demonstratie</title>
         <link rel="stylesheet" href="../common.css">
+        <script src="../src/6_demonstratie.js"></script>
     </head>
 
     <header>
@@ -14,7 +16,31 @@
         <hr>
     </header>
     <body>
-
+        <div style="display: block" class="centered">
+            <h2>Setari:</h2>
+            <label>Dificultate: </label>
+            <input type="radio" id="dificultate_usor" name="dificultate" value="0">
+            <label for="dificultate_usor">Usor</label>
+            <input type="radio" id="dificultate_normal" name="dificultate" value="1" checked>
+            <label for="dificultate_normal">Normal</label>
+            <input type="radio" id="dificultate_greu" name="dificultate" value="2">
+            <label for="dificultate_greu">Greu</label>
+            <br>
+            <label for="settings_width">Latime: </label><input type="range" min="8" max="12" value="10" class="slider" id="settings_width"/><label id="width_value">10</label>
+            <br>
+            <label for="settings_height">Inaltime: </label><input type="range" min="12" max="20" value="18" class="slider" id="settings_height"/><label id="height_value">18</label>
+            <br>
+            <label>Piese: (</label><strike>Tetrominoe</strike><label>)</label>
+            <label for="settings_piece_i">I: </label><input type="checkbox" id="settings_piece_i" checked>
+            <label for="settings_piece_j">J: </label><input type="checkbox" id="settings_piece_j" checked>
+            <label for="settings_piece_l">L: </label><input type="checkbox" id="settings_piece_l" checked>
+            <label for="settings_piece_o">O: </label><input type="checkbox" id="settings_piece_o" checked>
+            <label for="settings_piece_s">S: </label><input type="checkbox" id="settings_piece_s" checked>
+            <label for="settings_piece_t">T: </label><input type="checkbox" id="settings_piece_t" checked>
+            <label for="settings_piece_z">Z: </label><input type="checkbox" id="settings_piece_z" checked>
+            <br>
+            <input type="button" id="reset" value="Reset Game">
+        </div>
     </body>
     <footer>
         <hr>
